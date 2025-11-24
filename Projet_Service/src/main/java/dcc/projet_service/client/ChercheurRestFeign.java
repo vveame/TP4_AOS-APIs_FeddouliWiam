@@ -1,0 +1,14 @@
+package dcc.projet_service.client;
+
+
+import dcc.projet_service.dto.ResponseDtoChercheur;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+@FeignClient(name = "Chercheur-Service", configuration = FeignClientConfig.class)
+public interface ChercheurRestFeign {
+
+    @GetMapping("v1/chercheurs/{id}")
+    ResponseDtoChercheur GetChercheurByID(@PathVariable Long id);
+
+}
